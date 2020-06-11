@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loginChallengesApp/login_form.dart';
+import 'package:loginChallengesApp/login_signup_screen.dart';
+import 'package:loginChallengesApp/signup_form.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +33,34 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedScreenIndex = 0;
+  bool _formVisible = false;
+  List<Map<String, Object>> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      {
+        'title': 'Login',
+        'screen': LoginForm(),
+      },
+      {'title': 'SignUp', 'screen': SignUpForm()},
+    ];
+  }
+
+  _openForm(bool opened) {
+    setState(() {
+      _formVisible = true;
+    });
+  }
+
+  _selectScreen(int index) {
+    setState(() {
+      _selectedScreenIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,7 +124,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(
                           'Login',
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          _openForm(true);
+                          _selectScreen(0);
+                        },
                       ),
                     ),
                     SizedBox(
@@ -109,7 +142,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           borderRadius: BorderRadius.circular(20.0),
                           //side: BorderSide(color: Colors.white),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          _openForm(true);
+                          _selectScreen(1);
+                        },
                       ),
                     ),
                   ],
@@ -118,20 +154,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 10,
                 ),
                 OutlineButton.icon(
-                  borderSide: BorderSide(
-                    color: Colors.red
-                  ),
+                  borderSide: BorderSide(color: Colors.red),
                   textColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          //side: BorderSide(color: Colors.white),
-                        ),
-                  onPressed: () {},
+                    borderRadius: BorderRadius.circular(20.0),
+                    //side: BorderSide(color: Colors.white),
+                  ),
                   icon: Icon(FontAwesomeIcons.google),
                   label: Text('Continue with Google'),
+                  onPressed: () {},
                 ),
               ],
             ),
+          ),
+          AnimatedSwitcher(
+            duration: Duration(microseconds: 200),
+            child: (_formVisible)
+                ? LoginSignUpScreen(
+                    formIndex: _selectedScreenIndex,
+                  )
+                : null,
           ),
         ],
       ),
