@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:loginChallengesApp/control_form_button.dart';
 import 'package:loginChallengesApp/login_form.dart';
 import 'package:loginChallengesApp/signup_form.dart';
 
 class LoginSignUpScreen extends StatefulWidget {
   final int formIndex;
+  final Function() onClose;
 
-  const LoginSignUpScreen({this.formIndex});
+  const LoginSignUpScreen({@required this.formIndex, @required this.onClose});
 
   @override
   _LoginSignUpScreenState createState() => _LoginSignUpScreenState();
@@ -16,30 +16,8 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
   Widget _openForm() {
     switch (widget.formIndex) {
       case 0:
-        return Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                //header login
-                ControlFormButton(
-                    backgroundColor: Colors.red,
-                    textColor: Colors.white,
-                    title: 'Login',
-                    onPress: null),
-                ControlFormButton(
-                    backgroundColor: Colors.white,
-                    textColor: Colors.black,
-                    title: 'SignUp',
-                    onPress: null),
-                Spacer(),
-                IconButton(icon: Icon(Icons.close), onPressed: null),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            LoginForm(),
-          ],
+        return LoginForm(
+          onClose: widget.onClose,
         );
         break;
       case 1:
@@ -53,6 +31,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black54,
+      alignment: Alignment.center,
       child: _openForm(),
     );
   }

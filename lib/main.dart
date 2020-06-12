@@ -43,19 +43,28 @@ class _MyHomePageState extends State<MyHomePage> {
     _screens = [
       {
         'title': 'Login',
-        'screen': LoginForm(),
+        'screen': LoginForm(
+          onClose: _closeForm,
+        ),
       },
       {'title': 'SignUp', 'screen': SignUpForm()},
     ];
   }
 
-  _openForm(bool opened) {
+  void _openForm(bool opened) {
     setState(() {
       _formVisible = true;
     });
   }
 
-  _selectScreen(int index) {
+  void _closeForm() {
+    setState(() {
+      print('CloseForm');
+      _formVisible = !_formVisible;
+    });
+  }
+
+  void _selectScreen(int index) {
     setState(() {
       _selectedScreenIndex = index;
     });
@@ -66,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       //backgroundColor: Colors.black,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(widget.title),
       ),
       body: Stack(
@@ -170,8 +180,10 @@ class _MyHomePageState extends State<MyHomePage> {
           AnimatedSwitcher(
             duration: Duration(microseconds: 200),
             child: (_formVisible)
-                ? LoginSignUpScreen(
+                ? /* LoginForm(onClose: _closeForm) */
+                LoginSignUpScreen(
                     formIndex: _selectedScreenIndex,
+                    onClose: _closeForm,
                   )
                 : null,
           ),
