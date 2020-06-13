@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loginChallengesApp/login_form.dart';
-import 'package:loginChallengesApp/signup_form.dart';
+import 'package:loginChallengesApp/login01/login_form.dart';
+import 'package:loginChallengesApp/login01/signup_form.dart';
+
 
 
 class LoginSignUpScreen extends StatefulWidget {
@@ -40,6 +41,8 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
     return Container(
       color: Colors.black54,
       alignment: Alignment.center,
+      padding: EdgeInsets.all(20.0),
+      
       child: _openForm(),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:loginChallengesApp/login_signup_screen.dart';
+import 'package:loginChallengesApp/login01/login01_main_screen.dart';
+import 'package:loginChallengesApp/login02/login02_main_screen.dart';
+import 'package:loginChallengesApp/models/apps_info.dart';
+import 'package:loginChallengesApp/routes/app_routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,14 +18,20 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Login Challenge 01'),
+      //home: MyHomePage(title: 'Login Challenge 01'),
+      routes: {
+        AppRoutes.HOME: (ctx) => MyHomePage(title: 'Login Challenges'),
+        AppRoutes.LOGIN01: (ctx) =>
+            Login01MainScreen(title: 'Login Challenge 01'),
+                    AppRoutes.LOGIN02: (ctx) =>
+            Login02MainScreen(title: 'Login Challenge 02'),
+      },
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -31,163 +39,98 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedScreenIndex = 0;
-  bool _formVisible = false;
-  //List<Map<String, Object>> _screens;
-
-  @override
-  void initState() {
-    super.initState();
-/*     _screens = [
-      {
-        'title': 'Login',
-        'screen': LoginForm(
-          onClose: _closeForm,
-          selectScreen: _selectScreen,
-        ),
-      },
-      {'title': 'SignUp', 'screen': SignUpForm()},
-    ]; */
-  }
-
-  void _openForm(bool opened) {
-    setState(() {
-      _formVisible = true;
-    });
-  }
-
-  void _closeForm() {
-    setState(() {
-      _formVisible = !_formVisible;
-    });
-  }
-
-  void _selectScreen(int index) {
-    setState(() {
-      _selectedScreenIndex = index;
-    });
-  }
-
+  List<AppsInfo> _listApps = [
+    AppsInfo(
+        text: 'Profile Challenge 01',
+        imagePath: 'assets/images/profile01.png',
+        routeName: AppRoutes.LOGIN01),
+    AppsInfo(
+        text: 'Profile Challenge 02',
+        imagePath: 'assets/images/profile02.png',
+        routeName: AppRoutes.LOGIN02),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         title: Text(widget.title),
       ),
-      body: Stack(
-        children: <Widget>[
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            child: ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.7), BlendMode.srcOver),
-              child: Image.network(
-                'https://cdn.pixabay.com/photo/2013/12/11/13/49/holiday-226830_960_720.jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10.0),
-            //alignment: Alignment.center,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: kToolbarHeight + 40,
-                ),
-                Center(
-                  child: Text(
-                    'Welcome',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white54,
-                        fontSize: 35,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Center(
-                  child: Text(
-                    'Welcome to this awesome login App. \n You are awesome',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white54,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-                Spacer(),
-                Row(
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: ListView.builder(
+          itemCount: _listApps.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () => Navigator.of(context)
+                  .pushReplacementNamed(_listApps[index].routeName),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                elevation: 4.0,
+                child: Row(
                   children: <Widget>[
-                    Expanded(
-                      child: RaisedButton(
-                        color: Colors.red,
-                        textColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        child: Text(
-                          'Login',
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.asset(
+                          _listApps[index].imagePath,
+                          height: 200,
                         ),
-                        onPressed: () {
-                          _openForm(true);
-                          _selectScreen(0);
-                        },
                       ),
                     ),
                     SizedBox(
-                      width: 10.0,
+                      width: 10,
                     ),
-                    Expanded(
-                      child: RaisedButton(
-                        child: Text('SignUp'),
-                        color: Colors.grey,
-                        textColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          //side: BorderSide(color: Colors.white),
-                        ),
-                        onPressed: () {
-                          _openForm(true);
-                          _selectScreen(1);
-                        },
-                      ),
+                    Text(
+                      _listApps[index].text,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 10,
+              ),
+            );
+          },
+        ),
+/*         child: Column(
+          children: <Widget>[
+            InkWell(
+              onTap: () =>
+                  Navigator.of(context).pushReplacementNamed(AppRoutes.LOGIN01),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                elevation: 4.0,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.asset(
+                          'assets/images/profile01.png',
+                          height: 200,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Profile Challenge 01',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                  ],
                 ),
-                OutlineButton.icon(
-                  borderSide: BorderSide(color: Colors.red),
-                  textColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    //side: BorderSide(color: Colors.white),
-                  ),
-                  icon: Icon(FontAwesomeIcons.google),
-                  label: Text('Continue with Google'),
-                  onPressed: () {},
-                ),
-              ],
+              ),
             ),
-          ),
-          AnimatedSwitcher(
-            duration: Duration(milliseconds: 500),
-            child: (_formVisible)
-                ? LoginSignUpScreen(
-                    key: ValueKey<int>(_selectedScreenIndex),
-                    formIndex: _selectedScreenIndex,
-                    onClose: _closeForm,
-                    selectScreen: _selectScreen,
-                  )
-                : null,
-          ),
-        ],
+          ],
+        ), */
       ),
     );
   }

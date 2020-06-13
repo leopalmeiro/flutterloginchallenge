@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loginChallengesApp/control_form_button.dart';
+import 'package:loginChallengesApp/login01/control_form_button.dart';
 
 class LoginForm extends StatelessWidget {
   final void Function() onClose;
@@ -15,7 +15,7 @@ class LoginForm extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.0),
       ),
-      child: Container(
+      child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
