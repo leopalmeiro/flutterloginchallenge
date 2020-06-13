@@ -35,20 +35,21 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedScreenIndex = 0;
   bool _formVisible = false;
-  List<Map<String, Object>> _screens;
+  //List<Map<String, Object>> _screens;
 
   @override
   void initState() {
     super.initState();
-    _screens = [
+/*     _screens = [
       {
         'title': 'Login',
         'screen': LoginForm(
           onClose: _closeForm,
+          selectScreen: _selectScreen,
         ),
       },
       {'title': 'SignUp', 'screen': SignUpForm()},
-    ];
+    ]; */
   }
 
   void _openForm(bool opened) {
@@ -59,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _closeForm() {
     setState(() {
-      print('CloseForm');
       _formVisible = !_formVisible;
     });
   }
@@ -82,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Container(
             height: double.infinity,
+            width: double.infinity,
             child: ColorFiltered(
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.7), BlendMode.srcOver),
@@ -178,12 +179,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           AnimatedSwitcher(
-            duration: Duration(microseconds: 200),
+            duration: Duration(milliseconds: 500),
             child: (_formVisible)
-                ? /* LoginForm(onClose: _closeForm) */
-                LoginSignUpScreen(
+                ? LoginSignUpScreen(
+                    key: ValueKey<int>(_selectedScreenIndex),
                     formIndex: _selectedScreenIndex,
                     onClose: _closeForm,
+                    selectScreen: _selectScreen,
                   )
                 : null,
           ),

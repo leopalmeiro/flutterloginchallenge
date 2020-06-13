@@ -18,6 +18,9 @@ class ControlFormButton extends StatelessWidget {
       textColor: textColor,
       color: backgroundColor,
       child: Text(title),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
       onPressed: onPress,
     );
   }

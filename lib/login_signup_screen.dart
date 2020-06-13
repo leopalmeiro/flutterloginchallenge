@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:loginChallengesApp/login_form.dart';
 import 'package:loginChallengesApp/signup_form.dart';
 
+
 class LoginSignUpScreen extends StatefulWidget {
   final int formIndex;
-  final Function() onClose;
+  final void Function() onClose;
+  final void Function(int) selectScreen;
 
-  const LoginSignUpScreen({@required this.formIndex, @required this.onClose});
-
+  const LoginSignUpScreen(
+      {@required this.formIndex,
+      @required this.onClose,
+      @required this.selectScreen, Key key}):  super(key: key);
   @override
   _LoginSignUpScreenState createState() => _LoginSignUpScreenState();
 }
@@ -18,10 +22,14 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
       case 0:
         return LoginForm(
           onClose: widget.onClose,
+          selectScreen: widget.selectScreen,
         );
         break;
       case 1:
-        return SignUpForm();
+        return SignUpForm(
+          onClose: widget.onClose,
+          selectScreen: widget.selectScreen,
+        );
         break;
       default:
     }
