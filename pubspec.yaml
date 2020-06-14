@@ -50,6 +50,8 @@ flutter:
   assets:
     - assets/images/profile01.png
     - assets/images/profile02.png
+    - assets/images/logo.png
+
 
    #- images/a_dot_ham.jpeg
 
