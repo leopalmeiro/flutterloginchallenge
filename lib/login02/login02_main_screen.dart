@@ -84,12 +84,14 @@ class _Login02MainScreenState extends State<Login02MainScreen> {
                           Icon(FontAwesomeIcons.check, color: Colors.black26),
                       prefixIcon:
                           Icon(FontAwesomeIcons.user, color: Colors.black26),
+                      obscureText: false,
                     ),
                     TextFieldComponent(
                       hintText: 'Password',
                       addSuffixIcon: false,
                       prefixIcon:
                           Icon(FontAwesomeIcons.lock, color: Colors.black26),
+                      obscureText: true,
                     ),
                     Container(
                       width: double.infinity,

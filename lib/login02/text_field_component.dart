@@ -6,9 +6,9 @@ class TextFieldComponent extends StatelessWidget {
   final bool addSuffixIcon;
   final Icon suffixIcon;
   final Icon prefixIcon;
-  
+  final bool obscureText;
 
-  const TextFieldComponent({@required this.hintText, @required this.addSuffixIcon, @required this.prefixIcon, this.suffixIcon});
+  const TextFieldComponent({@required this.hintText, @required this.addSuffixIcon, @required this.prefixIcon, this.suffixIcon, @required this.obscureText});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,6 +18,7 @@ class TextFieldComponent extends StatelessWidget {
         borderRadius: BorderRadius.circular(40),
       ),
       child: TextField(
+        obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hintText,
           prefixIcon: prefixIcon,
