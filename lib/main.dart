@@ -84,10 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(
                       width: 10,
                     ),
-                    Text(
-                      _listApps[index].text,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    Expanded(
+                      child: Text(
+                        _listApps[index].text,
+                        style:
+                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
                     ),
                   ],
                 ),
