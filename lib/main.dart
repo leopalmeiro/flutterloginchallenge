@@ -85,7 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(
                       width: 10,
                     ),
-                    Expanded(
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      //width: double.infinity,
                       child: AutoSizeText(
                         _listApps[index].text,
                         maxLines: 1,
