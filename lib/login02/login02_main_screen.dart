@@ -97,13 +97,13 @@ class _Login02MainScreenState extends State<Login02MainScreen> {
                       width: double.infinity,
                       padding: EdgeInsets.all(10),
                       child: RaisedButton(
-                        padding: EdgeInsets.symmetric(vertical: 16),
+                        padding: EdgeInsets.symmetric(vertical: 15),
                         color: Colors.red,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40)),
                         child: Text(
                           'Login',
-                          style: TextStyle(fontSize: 20, color: Colors.white70),
+                          style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                         elevation: 11,
                         onPressed: () {},
