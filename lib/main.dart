@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Expanded(
                       child: AutoSizeText(
                         _listApps[index].text,
-                        //maxLines: 1,
+                        maxLines: 1,
                         style:
                             TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                       ),
