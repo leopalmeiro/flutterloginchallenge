@@ -86,15 +86,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 10,
                     ),
                     Container(
-                      padding: EdgeInsets.all(10),
+                      
+                      margin: EdgeInsets.all(10),
                       //width: double.infinity,
-                      child: Expanded(
-                        child: AutoSizeText(
-                          _listApps[index].text,
-                          maxLines: 1,
-                          style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
+                      child: AutoSizeText(
+                        _listApps[index].text,
+                        maxLines: 1,
+                        style:
+                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                   ],
