@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                                                     maxLines: 1,
-                        minFontSize: 18,
+                        minFontSize: 15,
                       ),
                     ),
                     SizedBox(width: 10,),
