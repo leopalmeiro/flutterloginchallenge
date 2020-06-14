@@ -85,11 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(
                       width: 10,
                     ),
-                    AutoSizeText(
-                      _listApps[index].text,
-                      //maxLines: 1,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    Expanded(
+                      child: AutoSizeText(
+                        _listApps[index].text,
+                        //maxLines: 1,
+                        style:
+                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
                     ),
                   ],
                 ),
