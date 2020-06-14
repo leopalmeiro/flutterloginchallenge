@@ -71,31 +71,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 elevation: 4.0,
                 child: Row(
                   children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Image.asset(
-                          _listApps[index].imagePath,
-                          height: 200,
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10.0),
+                          child: Image.asset(
+                            _listApps[index].imagePath,
+                            height: 200,
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      
-                      margin: EdgeInsets.all(10),
-                      //width: double.infinity,
+                    Expanded(
                       child: AutoSizeText(
-                        _listApps[index].text,
-                        maxLines: 1,
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        _listApps[index].text.toString(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                                                    maxLines: 1,
+                        minFontSize: 18,
                       ),
                     ),
+                    SizedBox(width: 10,),
                   ],
                 ),
               ),
