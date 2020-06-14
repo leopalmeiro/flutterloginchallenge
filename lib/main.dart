@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:loginChallengesApp/login01/login01_main_screen.dart';
 import 'package:loginChallengesApp/login02/login02_main_screen.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.HOME: (ctx) => MyHomePage(title: 'Login Challenges'),
         AppRoutes.LOGIN01: (ctx) =>
             Login01MainScreen(title: 'Login Challenge 01'),
-                    AppRoutes.LOGIN02: (ctx) =>
+        AppRoutes.LOGIN02: (ctx) =>
             Login02MainScreen(title: 'Login Challenge 02'),
       },
     );
@@ -84,12 +85,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(
                       width: 10,
                     ),
-                    Expanded(
-                      child: Text(
-                        _listApps[index].text,
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
+                    AutoSizeText(
+                      _listApps[index].text,
+                      maxLines: 1,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ],
                 ),
