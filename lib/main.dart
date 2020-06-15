@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         routeName: AppRoutes.LOGIN02),
     AppsInfo(
         text: 'Profile Challenge 03',
-        imagePath: 'assets/images/profile02.png',
+        imagePath: 'assets/images/profile03.png',
         routeName: AppRoutes.LOGIN03),
   ];
   @override

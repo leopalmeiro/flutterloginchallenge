@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loginChallengesApp/login03/text_field_prefix_container.dart';
 import 'package:loginChallengesApp/routes/app_routes.dart';
 
@@ -14,6 +13,8 @@ class Login03MainScreen extends StatefulWidget {
 class _Login03MainScreenState extends State<Login03MainScreen> {
   @override
   Widget build(BuildContext context) {
+    //double _height = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -23,29 +24,30 @@ class _Login03MainScreenState extends State<Login03MainScreen> {
             onPressed: () =>
                 Navigator.of(context).pushReplacementNamed(AppRoutes.HOME)),
       ),
-      body: SafeArea(
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.green[400], Colors.green[600]],
-            ),
+      body: Container(
+        height: double.infinity,
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.green[300], Colors.green[600]],
           ),
+        ),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               SizedBox(
-                height: 50,
+                height: 30,
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  height: 200,
-                  width: 200,
+              Container(
+                height: 200,
+                width: 200,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                  ),
                 ),
               ),
               SizedBox(
@@ -64,8 +66,10 @@ class _Login03MainScreenState extends State<Login03MainScreen> {
                 obscureText: true,
                 icon: Icons.lock,
               ),
-              Spacer(),
-              Container(
+              SizedBox(
+                height: 70,
+              ),
+              SizedBox(
                 width: double.infinity,
                 child: RaisedButton(
                   padding: EdgeInsets.all(20.0),
@@ -106,7 +110,7 @@ class _Login03MainScreenState extends State<Login03MainScreen> {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
