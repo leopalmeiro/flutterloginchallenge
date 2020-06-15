@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:loginChallengesApp/login03/text_field_prefix_container.dart';
 import 'package:loginChallengesApp/routes/app_routes.dart';
 
 class Login03MainScreen extends StatefulWidget {
@@ -35,33 +37,76 @@ class _Login03MainScreenState extends State<Login03MainScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
+              SizedBox(
+                height: 50,
+              ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image.asset(
                   'assets/images/logo.png',
-                  height: 250,
-                  width: 250,
+                  height: 200,
+                  width: 200,
                 ),
               ),
-              Card(
-                elevation: 11,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
+              SizedBox(
+                height: 20,
+              ),
+              TextFieldPrefixContainer(
+                hintText: 'Enter you email',
+                obscureText: false,
+                icon: Icons.person,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextFieldPrefixContainer(
+                hintText: 'Enter you password',
+                obscureText: true,
+                icon: Icons.lock,
+              ),
+              Spacer(),
+              Container(
+                width: double.infinity,
+                child: RaisedButton(
+                  padding: EdgeInsets.all(20.0),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide.none,
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  color: Colors.white,
+                  child: Text(
+                    'Login',
+                    style: TextStyle(color: Colors.lightGreen),
+                  ),
+                  onPressed: () {},
                 ),
-                child: TextField(
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: 'Enter your email',
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.1),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(40.0),
-                      ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Create Account',
+                      style: TextStyle(color: Colors.white70, fontSize: 20),
                     ),
                   ),
-                ),
-              ),
+                  Text(
+                    '|',
+                    style: TextStyle(color: Colors.white70, fontSize: 20),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Forgot Password',
+                      style: TextStyle(color: Colors.white70, fontSize: 20),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
