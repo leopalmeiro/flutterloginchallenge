@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:loginChallengesApp/login04/wave_clipper.dart';
 import 'package:loginChallengesApp/routes/app_routes.dart';
 
 class Login04MainScreen extends StatelessWidget {
@@ -24,6 +24,14 @@ class Login04MainScreen extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               ClipPath(
+                clipper: WavePathClipper(),
+                child: Container(
+                  height: 400,
+                  color: Colors.red,
+                ),
+              )
+
+              /*             ClipPath(
                 clipper: WaveClipperTwo(),
                 child: Container(
                   height: 380,
@@ -47,7 +55,7 @@ class Login04MainScreen extends StatelessWidget {
                   height: 375,
                   color: Colors.lightBlue.withOpacity(0.3),
                 ),
-              ),
+              ), */
             ],
           ),
         ));
