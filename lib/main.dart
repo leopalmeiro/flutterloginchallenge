@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:loginChallengesApp/login01/login01_main_screen.dart';
 import 'package:loginChallengesApp/login02/login02_main_screen.dart';
 import 'package:loginChallengesApp/login03/login03_main_screen.dart';
+import 'package:loginChallengesApp/login04/login04_main.screen.dart';
 import 'package:loginChallengesApp/models/apps_info.dart';
 import 'package:loginChallengesApp/routes/app_routes.dart';
 
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
             Login02MainScreen(title: 'Login Challenge 02'),
         AppRoutes.LOGIN03: (ctx) =>
             Login03MainScreen(title: 'Login Challenge 03'),
+        AppRoutes.LOGIN04: (ctx) =>
+            Login04MainScreen(title: 'Login Challenge 04'),
       },
     );
   }
@@ -56,6 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
         text: 'Profile Challenge 03',
         imagePath: 'assets/images/profile03.png',
         routeName: AppRoutes.LOGIN03),
+    AppsInfo(
+        text: 'Profile Challenge 04',
+        imagePath: 'assets/images/profile03.png',
+        routeName: AppRoutes.LOGIN04),
   ];
   @override
   Widget build(BuildContext context) {
