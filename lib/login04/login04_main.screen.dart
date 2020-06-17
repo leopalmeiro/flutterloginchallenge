@@ -24,12 +24,19 @@ class Login04MainScreen extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               ClipPath(
-                clipper: WavePathClipper(),
+                clipper: Wave01PathClipper(),
                 child: Container(
-                  height: 400,
+                  height: 500,
                   color: Colors.red,
                 ),
-              )
+              ),
+                            ClipPath(
+                clipper: Wave02PathClipper(),
+                child: Container(
+                  height: 490,
+                  color: Colors.blue,
+                ),
+              ),
 
               /*             ClipPath(
                 clipper: WaveClipperTwo(),
