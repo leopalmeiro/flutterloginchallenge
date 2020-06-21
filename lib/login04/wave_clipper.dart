@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'dart:math';
 
 class Wave01PathClipper extends CustomClipper<Path> {
   @override
@@ -22,13 +23,8 @@ class Wave01PathClipper extends CustomClipper<Path> {
         firstEndControlPoint.dx,
         firstEndControlPoint.dy);
 
-    path.cubicTo(
-        endInitialControlPoint.dx,
-        endInitialControlPoint.dy,
-        endAmplitud.dx,
-        endAmplitud.dy,
-        endControlPoint.dx,
-        endControlPoint.dy);
+    path.cubicTo(endInitialControlPoint.dx, endInitialControlPoint.dy,
+        endAmplitud.dx, endAmplitud.dy, endControlPoint.dx, endControlPoint.dy);
 
     //corner bottom Right
     path.lineTo(size.width, size.height);
@@ -62,6 +58,24 @@ class Wave02PathClipper extends CustomClipper<Path> {
     path.lineTo(size.width, size.height); */
     path.lineTo(size.width, 0.0);
 
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(oldClipper) => false;
+}
+
+class Wave03PathCLipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0, size.height * 0.9);
+    path.quadraticBezierTo(
+        size.width * .35, size.height, size.width * .6, size.height * .9);
+    path.quadraticBezierTo(
+        size.width * .85, size.height * .80, size.width, size.height * 0.9);
+    path.lineTo(size.width, 0);
     path.close();
     return path;
   }

@@ -23,46 +23,32 @@ class Login04MainScreen extends StatelessWidget {
           width: double.infinity,
           child: Stack(
             children: <Widget>[
+              Container(
+                child: ClipPath(
+                  clipper: Wave03PathCLipper(),
+                  child: Container(
+                    height: 430,
+                    color: Colors.red[100].withOpacity(.8),
+                  ),
+                ),
+              ),
               ClipPath(
                 clipper: Wave01PathClipper(),
                 child: Container(
-                  height: 500,
-                  color: Colors.red,
+                  height: 405,
+                  color: Colors.red[200].withOpacity(.4),
                 ),
               ),
-                            ClipPath(
+              ClipPath(
                 clipper: Wave02PathClipper(),
                 child: Container(
-                  height: 490,
-                  color: Colors.blue,
+                  height: 400,
+                  decoration: BoxDecoration(
+                    gradient:
+                        LinearGradient(colors: [Colors.red, Colors.pink[500]]),
+                  ),
                 ),
               ),
-
-              /*             ClipPath(
-                clipper: WaveClipperTwo(),
-                child: Container(
-                  height: 380,
-                  color: Colors.lightBlue[100],
-                ),
-              ),
-              ClipPath(
-                clipper: WaveClipperOne(
-                    //flip: true
-                    ),
-                child: Container(
-                  height: 350,
-                  color: Colors.lightBlue[400],
-                ),
-              ),
-              ClipPath(
-                clipper: WaveClipperTwo(
-                  flip: true,
-                ),
-                child: Container(
-                  height: 375,
-                  color: Colors.lightBlue.withOpacity(0.3),
-                ),
-              ), */
             ],
           ),
         ));
