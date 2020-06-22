@@ -52,8 +52,9 @@ flutter:
     - assets/images/profile01.png
     - assets/images/profile02.png
     - assets/images/profile03.png
+    - assets/images/profile04.png
     - assets/images/logo.png
-
+    - assets/images/vegetable.png
 
    #- images/a_dot_ham.jpeg
 
