@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'dart:math';
 
 class Wave01PathClipper extends CustomClipper<Path> {
   @override
