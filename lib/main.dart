@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: AutoSizeText(
                         _listApps[index].text.toString(),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+                            fontWeight: FontWeight.bold, fontSize: 18),
                         maxLines: 1,
                         minFontSize: 15,
                       ),

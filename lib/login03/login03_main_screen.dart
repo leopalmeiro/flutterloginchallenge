@@ -89,24 +89,25 @@ class _Login03MainScreenState extends State<Login03MainScreen> {
                 height: 10,
               ),
               Row(
+                
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   FlatButton(
                     onPressed: () {},
                     child: Text(
                       'Create Account',
-                      style: TextStyle(color: Colors.white70, fontSize: 20),
+                      style: TextStyle(color: Colors.white70, fontSize: 15),
                     ),
                   ),
                   Text(
                     '|',
-                    style: TextStyle(color: Colors.white70, fontSize: 20),
+                    style: TextStyle(color: Colors.white70, fontSize: 10),
                   ),
                   FlatButton(
                     onPressed: () {},
                     child: Text(
                       'Forgot Password',
-                      style: TextStyle(color: Colors.white70, fontSize: 20),
+                      style: TextStyle(color: Colors.white70, fontSize: 15),
                     ),
                   ),
                 ],
